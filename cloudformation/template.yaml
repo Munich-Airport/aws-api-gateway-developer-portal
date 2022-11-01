@@ -175,6 +175,10 @@ Parameters:
       # - 'request'
       - 'invite'
 
+  CognitoSenderEmailARN:
+    Type: String
+    Description: Sender Address for Cognito to send emails like password reset email.
+
 Conditions:
   UseCustomDomainName: !And [!And [!Not [!Equals [!Ref CustomDomainName, '']], !Not [!Equals [!Ref CustomDomainNameAcmCertArn, '']]], !Condition NotDevelopmentMode]
   NoCustomDomainName: !And [!Not [ !Condition UseCustomDomainName ], !Condition NotDevelopmentMode]
@@ -1412,6 +1416,9 @@ Resources:
       UsernameAttributes: ['email']
       EmailVerificationSubject: 'Developer Portal - Verification Code'
       EmailVerificationMessage: '<h2>Developer Portal</h2><p>Your verification code is <b>{####}</b></p>'
+      EmailConfiguration:
+        EmailSendingAccount: 'COGNITO_DEFAULT'
+        SourceArn: !Ref CognitoSenderEmailARN
 
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
