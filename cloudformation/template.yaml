@@ -1422,7 +1422,7 @@ Resources:
       EmailVerificationSubject: 'Developer Portal - Verification Code'
       EmailVerificationMessage: '<h2>Developer Portal</h2><p>Your verification code is <b>{####}</b></p>'
       EmailConfiguration:
-        EmailSendingAccount: 'COGNITO_DEFAULT'
+        EmailSendingAccount: 'DEVELOPER'
         SourceArn: !Ref CognitoSenderEmailARN
         From: !Ref CognitoSenderEmailText
 
