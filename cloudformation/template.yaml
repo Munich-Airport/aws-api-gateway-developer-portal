@@ -179,11 +179,6 @@ Parameters:
     Type: String
     Description: Sender Address for Cognito to send emails like password reset email.
 
-  CognitoSenderEmailText:
-    Type: String
-    Description: Sender Text for Cognito to send emails like password reset email.
-
-
 Conditions:
   UseCustomDomainName: !And [!And [!Not [!Equals [!Ref CustomDomainName, '']], !Not [!Equals [!Ref CustomDomainNameAcmCertArn, '']]], !Condition NotDevelopmentMode]
   NoCustomDomainName: !And [!Not [ !Condition UseCustomDomainName ], !Condition NotDevelopmentMode]
@@ -1424,7 +1419,6 @@ Resources:
       EmailConfiguration:
         EmailSendingAccount: 'DEVELOPER'
         SourceArn: !Ref CognitoSenderEmailARN
-        From: !Ref CognitoSenderEmailText
 
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
