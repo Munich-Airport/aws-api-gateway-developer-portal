@@ -5,8 +5,8 @@ title: Getting started
 
 ## Getting started:
 
-Request an account with It-orders@munich-airport.de or log in by clicking on the button at the top right. After you have logged in, you will receive a new API key, which is not linked to our APIs. To enable it for specific APIs, click APIs at the top of the page and find the API you want under "Search APIs". After you click "Subscribe", this API is subscribed and you can call the methods of the API. Depending on your configuration, you can subscribe to multiple APIs. Click on the button "Try it out!" for the respective API to get examples of the request and response forms of our APIs. Fill in the mandatory fields marked *required (for example, in the "flight_operation" API)
-![fields](../Eingabefelder.PNG)
+Request an account with It-orders@munich-airport.de or log in by clicking on the button at the top right. After you have logged in, you will receive a new API key, which is not linked to our APIs. To enable it for specific APIs, click APIs at the top of the page and find the API you want under "Search APIs". After you click "Subscribe", this API is subscribed and you can call the methods of the API. Depending on your configuration, you can subscribe to multiple APIs. Click on the button "Try it out!" for the respective API to get examples of the request and response forms of our APIs. Fill in the mandatory fields marked *required (for example, in the "flight_operation" API) <br>
+![fields](../Eingabefelder.PNG) <br>
 then press Execute. You will now see the results.
 ![Results](../Ergebnisse.PNG)
 You can call up your API key at any time by clicking on "My Dashboard".
