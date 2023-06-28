@@ -34,3 +34,6 @@ cognito.js
 .vscode
 .eslintcache
 *.iml
+
+**/node_modules/
+lambdas/backend/node_modules/
