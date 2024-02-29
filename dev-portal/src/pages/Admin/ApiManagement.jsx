@@ -6,7 +6,7 @@ import { apiGatewayClientWithCredentials } from 'services/api'
 import { getApi } from 'services/api-catalog'
 import { store } from 'services/state'
 
-import * as YAML from 'js-yaml'
+import * as YAML from 'yamljs'
 
 import hash from 'object-hash'
 import { toJS } from 'mobx'
@@ -98,7 +98,7 @@ export const ApiManagement = observer(class ApiManagement extends React.Componen
 
         reader.onload = (e) => {
           if (file.name.includes('yaml')) {
-            swaggerObject = YAML.load(e.target.result)
+            swaggerObject = YAML.parse(e.target.result)
             swagger = JSON.stringify(swaggerObject)
           } else {
             swaggerObject = JSON.parse(e.target.result)
