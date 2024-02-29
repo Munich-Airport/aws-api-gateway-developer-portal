@@ -1,21 +1,27 @@
 ---
-title: Getting Started
+title: Getting started
 ---
+-----------------------------------------------------------------------------------------------------------------
 
-## Getting Started
+## Getting started:
 
-### Create an account and subscribe to APIs
+Request an account with It-orders@munich-airport.de or log in by clicking on the button at the top right. After you have logged in, you will receive a new API key, which is not linked to our APIs. To enable it for specific APIs, click APIs at the top of the page and find the API you want under "Search APIs". After you click "Subscribe", this API is subscribed and you can call the methods of the API. Depending on your configuration, you can subscribe to multiple APIs. Click on the button "Try it out!" for the respective API to get examples of the request and response forms of our APIs. Fill in the mandatory fields marked *required (for example, in the "flight_operation" API) <br>
+![fields](/custom-content/Eingabefelder.PNG) <br>
+then press Execute. You will now see the results. <br>
+![Results](/custom-content/Ergebnisse.PNG) <br>
+You can call up your API key at any time by clicking on "My Dashboard".
+Each API is usually subject to a usage limit. You can monitor your usage on your dashboard.  <br>
+![Dashboard](/custom-content/Dashboard-Nutzungsdauer.PNG) <br>
 
-To use any of our APIs you must create a developer account. A developer account provides an API Key for accessing our APIs, a playground for testing our APIs, and API usage metrics. Create or sign in using the buttons in the top right.
+-----------------------------------------------------------------------------------------------------------------
 
-After you create a new account, you will have a new API Key but it won't be linked to any of our APIs. To activate it for a particular API, navigate to [APIs](/apis) and find the API you want. Click `subscribe`. Your API Key is now subscribed to the API and you can make calls to its methods.
+Fragen Sie bei It-orders@munich-airport.de einen Account an oder melden Sie sich an, indem Sie auf den Button oben rechts klicken. Nachdem Sie sich angemeldet haben, erhalten Sie einen neuen API Schlüssel, welcher jedoch nicht mit unseren APIs verknüpft ist. Um ihn für bestimmte APIs zu aktivieren, klicken Sie auf „APIs“ am oberen Rand der Seite und suchen Sie die gewünschte API unter „Search APIs“. Nachdem Sie auf „Subscribe“ geklickt haben, ist diese API abonniert und Sie können die Methoden der API aufrufen. Je nach Konfiguration können Sie mehrere APIs abonnieren. Klicke bei dem jeweiligen API auf den Button „Try it out!“ um Beispiele für die Anfrage- und Antwortformen unserer APIs zu erhalten. Füllen Sie die Pflichtfelder aus, die mit *required gekennzeichnet sind (beispielsweise bei der „flight_operation“ API) <br>
+![Eingabefeld](/custom-content/Eingabefelder.PNG)  <br>
+und drücken Sie anschließend auf „Execute“. Ihnen werden jetzt die Ergebnisse angezeigt. <br>
+![Ergebnisse](/custom-content/Ergebnisse.PNG) <br>
+Ihren API Key können Sie indem Sie auf „My Dashboard“ klicken jederzeit aufrufen.
+Für jede API wird in der Regel ein Nutzungslimit festgelegt. Sie können Ihre Nutzung auf Ihrem Dashboard überwachen. <br>
+![Dashboard](/custom-content/Dashboard-Nutzungsdauer.PNG) <br>
 
-Depending on the API configuration, subscribing to one API may subscribe you to several APIs. These APIs may have related functionality or share a pricing plan. Requests against any of them will be counted together in your usage.
-
-We know that figuring out how to use APIs can be hard. Use the “Try it out!” feature to get examples of the request and response shapes of our APIs. This makes an API call to the backend service using your API Key and provides a sample `curl` request with all necessary input parameters and the real response.
-
-If you need your API Key for any reason, you can always find it on [your dashboard](/dashboard) after logging in.
-
-### Monitor your usage
-
-Typically each API has a usage limit set for each API Key. As you scale up your usage of the APIs, you can monitor your usage towards the limits on [your dashboard](/dashboard).
+-----------------------------------------------------------------------------------------------------------------
+[Impresssum](https://www.munich-airport.de/impressum-375921)   |      [Nutzungsbestimmungen](https://www.munich-airport.de/nutzungsbestimmungen-783787)      |      [Datenschutz](https://www.munich-airport.de/datenschutzerklaerung-hinweise-zum-datensch)

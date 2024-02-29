@@ -40,6 +40,7 @@ Metadata:
         Label:
           default: "Custom Domain Configuration"
         Parameters:
+          - CustomDomainSubnet
           - CustomDomainName
           - CustomDomainNameAcmCertArn
           - UseRoute53Nameservers
@@ -122,6 +123,11 @@ Parameters:
   #   Description: Doesn't yet do anything. Oh well.
   #   Default: ''
 
+  CustomDomainSubnet:
+    Type: String
+    Description: Optionally provide a custom domain Subnet, where to deploy the Custom Domain to create a developer portal at that domain name (provide with the format foo.bar.net). Leave blank to create a developer portal without a custom domain name. Standing up a developer portal stack with a custom domain name will take significantly longer than without.
+    Default: ''
+
   CustomDomainName:
     Type: String
     Description: Optionally provide a custom domain name associated with an ACM cert to create a developer portal at that domain name (provide with the format foo.bar.net). Leave blank to create a developer portal without a custom domain name. Standing up a developer portal stack with a custom domain name will take significantly longer than without.
@@ -168,6 +174,10 @@ Parameters:
       - 'open'
       # - 'request'
       - 'invite'
+
+  CognitoSenderEmailARN:
+    Type: String
+    Description: Sender Address for Cognito to send emails like password reset email.
 
 Conditions:
   UseCustomDomainName: !And [!And [!Not [!Equals [!Ref CustomDomainName, '']], !Not [!Equals [!Ref CustomDomainNameAcmCertArn, '']]], !Condition NotDevelopmentMode]
@@ -1406,6 +1416,9 @@ Resources:
       UsernameAttributes: ['email']
       EmailVerificationSubject: 'Developer Portal - Verification Code'
       EmailVerificationMessage: '<h2>Developer Portal</h2><p>Your verification code is <b>{####}</b></p>'
+      EmailConfiguration:
+        EmailSendingAccount: 'DEVELOPER'
+        SourceArn: !Ref CognitoSenderEmailARN
 
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
@@ -1893,6 +1906,7 @@ Resources:
         ViewerCertificate:
           AcmCertificateArn: !Ref CustomDomainNameAcmCertArn
           SslSupportMethod: 'sni-only'
+          MinimumProtocolVersion: TLSv1.2_2021
 
   DefaultCloudfrontDistribution:
     Type: AWS::CloudFront::Distribution
@@ -1931,17 +1945,17 @@ Resources:
       CloudFrontOriginAccessIdentityConfig:
         Comment: !Sub 'CloudFront OAI for ${CustomDomainName}'
 
-  CustomDomainHostedZone:
-    Type: AWS::Route53::HostedZone
-    Condition: UseRoute53
-    Properties:
-      Name: !Join [ '', [ !Ref CustomDomainName, '.' ] ]
+#  CustomDomainHostedZone:
+#    Type: AWS::Route53::HostedZone
+#    Condition: UseRoute53
+#    Properties:
+#      Name: !Join [ '', [ !Ref CustomDomainSubnet, '.' ] ]
 
   CustomDomainRecordSet:
     Type: AWS::Route53::RecordSetGroup
     Condition: UseRoute53
     Properties:
-      HostedZoneName: !Join [ '', [ !Ref CustomDomainName, '.' ] ]
+      HostedZoneName: !Join [ '', [ !Ref CustomDomainSubnet, '.' ] ]
       RecordSets:
         - Name: !Join [ '', [ !Ref CustomDomainName, '.' ] ]
           Type: A

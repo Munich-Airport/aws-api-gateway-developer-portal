@@ -33,4 +33,5 @@ cognito.js
 .eslintcache
 *.iml
 
-
+**/node_modules/
+lambdas/backend/node_modules/
